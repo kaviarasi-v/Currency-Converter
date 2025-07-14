@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Currency Converter</title>
+  <style>
+  body {
+    background-image: url("/static/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+    .container {
+      margin-top: 120px;
+      background-color: rgba(0, 0, 0, 0.5); /* transparent box */
+      padding: 30px;
+      border-radius: 10px;
+      width: 350px;
+      margin-left: 100px; /* move left */
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+    input[type="number"] {
+      background: #fff;
+      color: #000;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Currency Converter</h1>
+    <form method="POST">
+      <input type="number" name="amount" placeholder="Enter amount" required />
+
+      <label>From:</label>
+      <select name="from_currency" required>
+        <option value="USD">United States (USD)</option>
+        <option value="INR">India (INR)</option>
+        <option value="EUR">Euro (EUR)</option>
+        <option value="GBP">United Kingdom (GBP)</option>
+        <option value="JPY">Japan (JPY)</option>
+        <option value="CNY">China (CNY)</option>
+        <option value="AUD">Australia (AUD)</option>
+        <option value="CAD">Canada (CAD)</option>
+        <option value="CHF">Switzerland (CHF)</option>
+        <option value="SGD">Singapore (SGD)</option>
+        <option value="NZD">New Zealand (NZD)</option>
+        <option value="ZAR">South Africa (ZAR)</option>
+        <option value="BRL">Brazil (BRL)</option>
+        <option value="MXN">Mexico (MXN)</option>
+        <option value="KRW">South Korea (KRW)</option>
+        <option value="SEK">Sweden (SEK)</option>
+        <option value="NOK">Norway (NOK)</option>
+        <option value="RUB">Russia (RUB)</option>
+        <option value="AED">United Arab Emirates (AED)</option>
+        <option value="HKD">Hong Kong (HKD)</option>
+        <option value="THB">Thailand (THB)</option>
+        <option value="SAR">Saudi Arabia (SAR)</option>
+        <option value="TRY">Turkey (TRY)</option>
+        <option value="DKK">Denmark (DKK)</option>
+        <option value="MYR">Malaysia (MYR)</option>
+      </select>
+
+      <label>To:</label>
+      <select name="to_currency" required>
+        <option value="INR">India (INR)</option>
+        <option value="USD">United States (USD)</option>
+        <option value="EUR">Euro (EUR)</option>
+        <option value="GBP">United Kingdom (GBP)</option>
+        <option value="JPY">Japan (JPY)</option>
+        <option value="CNY">China (CNY)</option>
+        <option value="AUD">Australia (AUD)</option>
+        <option value="CAD">Canada (CAD)</option>
+        <option value="CHF">Switzerland (CHF)</option>
+        <option value="SGD">Singapore (SGD)</option>
+        <option value="NZD">New Zealand (NZD)</option>
+        <option value="ZAR">South Africa (ZAR)</option>
+        <option value="BRL">Brazil (BRL)</option>
+        <option value="MXN">Mexico (MXN)</option>
+        <option value="KRW">South Korea (KRW)</option>
+        <option value="SEK">Sweden (SEK)</option>
+        <option value="NOK">Norway (NOK)</option>
+        <option value="RUB">Russia (RUB)</option>
+        <option value="AED">United Arab Emirates (AED)</option>
+        <option value="HKD">Hong Kong (HKD)</option>
+        <option value="THB">Thailand (THB)</option>
+        <option value="SAR">Saudi Arabia (SAR)</option>
+        <option value="TRY">Turkey (TRY)</option>
+        <option value="DKK">Denmark (DKK)</option>
+        <option value="MYR">Malaysia (MYR)</option>
+      </select>
+
+      <button type="submit">Convert</button>
+    </form>
+    <div id="result">{{ result }}</div>
+  </div>
+</body>
+</html>
